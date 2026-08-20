@@ -303,6 +303,10 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);min-hei
 .bk-d-val{font-weight:500;color:var(--ink);line-height:1.4}
 
 .tpl-section{border-top:1px solid var(--forest-border);padding-top:18px;margin-top:4px}
+.tpl-lang-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.tpl-lang-lbl{font-size:11px;font-weight:600;color:var(--ink-dim);letter-spacing:0.3px}
+.tpl-lang-select{background:var(--surface-2);border:1.5px solid var(--forest-border);color:var(--ink);font-family:'Jost',sans-serif;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:8px;cursor:pointer}
+.tpl-lang-select:focus{outline:none;border-color:var(--gold)}
 .tpl-group{margin-bottom:16px}
 .tpl-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
 .tpl-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
@@ -408,6 +412,8 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);min-hei
         <div class="lang-opt" data-lang="ko" onclick="setLang('ko')"><span class="flag">🇰🇷</span> 한국어</div>
         <div class="lang-opt" data-lang="zh" onclick="setLang('zh')"><span class="flag">🇨🇳</span> 中文</div>
         <div class="lang-opt" data-lang="ja" onclick="setLang('ja')"><span class="flag">🇯🇵</span> 日本語</div>
+        <div class="lang-opt" data-lang="es" onclick="setLang('es')"><span class="flag">🇪🇸</span> Español</div>
+        <div class="lang-opt" data-lang="fr" onclick="setLang('fr')"><span class="flag">🇫🇷</span> Français</div>
       </div>
     </div>
   </div>
@@ -717,6 +723,8 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);min-hei
       <button class="lang-list-opt" onclick="chooseLangFirstVisit('ko')"><span class="flag">🇰🇷</span><span class="lname">한국어</span><span class="arrow">→</span></button>
       <button class="lang-list-opt" onclick="chooseLangFirstVisit('zh')"><span class="flag">🇨🇳</span><span class="lname">中文</span><span class="arrow">→</span></button>
       <button class="lang-list-opt" onclick="chooseLangFirstVisit('ja')"><span class="flag">🇯🇵</span><span class="lname">日本語</span><span class="arrow">→</span></button>
+      <button class="lang-list-opt" onclick="chooseLangFirstVisit('es')"><span class="flag">🇪🇸</span><span class="lname">Español</span><span class="arrow">→</span></button>
+      <button class="lang-list-opt" onclick="chooseLangFirstVisit('fr')"><span class="flag">🇫🇷</span><span class="lname">Français</span><span class="arrow">→</span></button>
     </div>
     <div class="lang-welcome-foot">You can always change this later from the top-right corner.</div>
   </div>
@@ -945,11 +953,96 @@ ja: {
   "reminder.title":"ご予約ありがとうございます！",
   "reminder.body":"ご予約は<strong>まだ確定しておりません。</strong>ご入力いただいた<strong>メールアドレスまたは電話番号</strong>宛に、ご予約の確定または調整が必要な場合のご連絡を差し上げます。<br><br>メールをご確認いただくか、お電話・メッセージにご返信ください。<span class=\"warn\">ご連絡が取れず、ご返信もいただけない場合、大変恐縮ですがご予約時間を100%確保することができません。</span><br><br>ご理解いただき誠にありがとうございます 💛",
   "reminder.ok":"承知しました"
+},
+es: {
+  "nav.info":"Información","nav.health":"Salud","nav.booking":"Reserva","nav.done":"Listo",
+  "hero.tag":"Reserva de Cita","hero.hours":"Abierto 10:00 – 22:00",
+  "common.continue":"Continuar →","common.back":"← Atrás","common.yes":"Sí, por favor","common.no":"No, gracias",
+  "info.title":"📋 Cómo Reservar","info.sub":"Por favor lea antes de continuar",
+  "info.body":`Puede reservar con cualquier cantidad de días de anticipación, ¡incluso un día es suficiente! Para reservas el mismo día, resérvela con al menos <strong>2–3 horas de anticipación</strong> y asegúrese de <strong>responder a nuestro mensaje de confirmación con prontitud</strong>, ya que no podemos reservar su horario sin una respuesta. Para reservas de último momento <strong>(menos de 2 horas)</strong>, llámenos o escríbanos por WhatsApp directamente al <a href="tel:+6663394622">+66 63-394-6422</a>.
+    <div class="strip strip-deposit">💳 <strong>Depósito Opcional para Grupos Grandes o Reservas Garantizadas</strong><br>Para reservas de grupos grandes o si desea garantizar su horario, puede realizar un depósito de <strong>200 THB por persona</strong>. Contáctenos directamente:<br>📞 <a href="tel:+6663394622">+66 63-394-6422</a> (Llamada / WhatsApp) &nbsp;·&nbsp; ✉️ jmmassagetherapycm@gmail.com</div>
+    <div class="strip strip-policy">📌 <strong>Política de Citas</strong><br>1. Por favor llegue a tiempo. Si llega <strong>más de 15 minutos tarde</strong>, descontaremos el tiempo de retraso de su sesión de masaje.<br>2. Si llega <strong>30 minutos o más tarde</strong>, nos reservamos el derecho de cancelar la cita.</div>`,
+  "health.title":"🌿 Confirmación de Salud","health.sub":"Por favor confirme que <strong style=\"color:var(--red)\">NO</strong> tiene ninguna de las siguientes condiciones",
+  "health.items":["Problemas graves de columna (p. ej. hernia discal)","Lesión, cirugía o fracturas recientes","Enfermedad cardíaca grave o condición médica de alto riesgo","Cáncer o en tratamiento","Embarazo","Afecciones cutáneas infecciosas o heridas abiertas"],
+  "health.confirmText":"Confirmo que estoy en buen estado de salud y puedo recibir un masaje de forma segura.",
+  "health.err":"Por favor confirme su estado de salud marcando la casilla anterior.",
+  "health.next":"Confirmo — Continuar a la Reserva →",
+  "booking.personal.title":"Información Personal","booking.name.label":"Nombre Completo","booking.name.err":"Por favor ingrese su nombre.",
+  "booking.contact.label":"Número de Teléfono o Correo Electrónico","booking.contact.hint":"Se prefiere número tailandés. Si no dispone de uno, indique su correo electrónico — le enviaremos una confirmación.","booking.contact.err":"Por favor ingrese su número de teléfono o correo electrónico.",
+  "booking.datetime.title":"Fecha y Hora","booking.date.label":"Fecha Preferida","booking.date.err":"Por favor seleccione una fecha.",
+  "booking.time.label":"Hora Preferida","booking.time.hint":"Horario de atención: 10:00 – 22:00","booking.time.err":"Por favor seleccione una hora.",
+  "booking.people.label":"Número de Personas","booking.people.select":"— Seleccionar —","booking.people.err":"Por favor seleccione el número de personas.",
+  "booking.services.title":"Servicios de Masaje","booking.services.hint":"Los detalles completos y precios en varios idiomas están en el Menú (parte superior de la página)","booking.services.err":"Por favor seleccione al menos un servicio.",
+  "booking.session.title":"Detalles de la Sesión",
+  "booking.duration.label":"Duración","booking.duration.60":"60 minutos","booking.duration.90":"90 minutos","booking.duration.120":"120 minutos","booking.duration.150":"150 minutos","booking.duration.180":"180 minutos (3 horas)","booking.duration.err":"Por favor seleccione una duración.",
+  "booking.therapist.label":"Preferencia de Terapeuta","booking.therapist.male":"Hombre","booking.therapist.female":"Mujer","booking.therapist.either":"Cualquiera / Sin preferencia","booking.therapist.err":"Por favor seleccione una preferencia.",
+  "booking.pressure.label":"Nivel de Presión","booking.pressure.light":"Suave — relajante y ligero","booking.pressure.medium":"Medio — intensidad moderada","booking.pressure.strong":"Fuerte — profundo e intenso","booking.pressure.err":"Por favor seleccione un nivel de presión.",
+  "booking.addons.title":"Extras de Cortesía",
+  "booking.footsoak.label":"¿Baño de Pies de Cortesía?","booking.footsoak.hint":"Servicio gratuito — por favor llegue de 15 a 20 minutos antes si selecciona esta opción.","booking.footsoak.yes":"¡Sí! Baño de Hierbas Chinas — mejora la circulación y la relajación","booking.footsoak.no":"Sin baño de pies (hora de llegada habitual)","booking.footsoak.err":"Por favor seleccione una opción.",
+  "booking.balm.label":"¿Bálsamo de Masaje JM?","booking.balm.hint":"Sin costo adicional","booking.balm.err":"Por favor seleccione una opción.",
+  "booking.bianstone.label":"¿Masaje de Cuello y Hombros con Piedra Bian Caliente?","booking.bianstone.hint":"GRATIS para sesiones de 90 minutos o más — se realiza al final de su sesión.","booking.bianstone.yes":"Sí, me gustaría","booking.bianstone.err":"Por favor seleccione una opción.",
+  "booking.notes.label":"Notas / Solicitudes Especiales","booking.notes.hint":"Cualquier solicitud especial, nota de salud o preferencia",
+  "booking.submit":"Enviar Solicitud de Reserva","booking.submitting":"⏳ Enviando...",
+  "policy.title":"📋 Política de Reservas","policy.sub":"Por favor lea y confirme",
+  "policy.body":"Nos esforzamos por brindar el mejor servicio a los huéspedes que reservan con anticipación. <strong>Por favor responda a nuestro mensaje de confirmación o correo electrónico con prontitud para finalizar su reserva.</strong> Si no podemos comunicarnos con usted o no recibimos respuesta, es posible que su reserva no sea confirmada.",
+  "policy.confirmText":"Reconozco la política de reservas y entiendo que debo responder al mensaje de confirmación para finalizar mi reserva.",
+  "policy.err":"Por favor confirme la política de reservas.",
+  "done.title":"¡Solicitud de Reserva Recibida!","done.sub":"Gracias por elegir JM Massage Studio. Revisaremos su reserva y nos pondremos en contacto con usted en breve para confirmar su cita.",
+  "done.summaryTitle":"Resumen de su Reserva",
+  "done.nextTitle":"⏳ ¿Qué sigue?","done.next1":"1. Revisaremos su reserva y verificaremos la disponibilidad.","done.next2":"2. Nos pondremos en contacto por teléfono o correo electrónico para confirmar su cita.","done.next3":"3. Por favor responda a nuestro mensaje de confirmación para finalizar su reserva.",
+  "done.screenshot":"Por favor tome una captura de pantalla de esta página como prueba de su solicitud de reserva.",
+  "s.name":"Nombre","s.contact":"Contacto","s.date":"Fecha","s.time":"Hora","s.people":"Personas","s.services":"Servicios","s.duration":"Duración","s.therapist":"Terapeuta","s.pressure":"Presión","s.footsoak":"Baño de Pies","s.balm":"Bálsamo","s.bianstone":"Piedra Bian","s.notes":"Notas","s.submitted":"Enviado",
+  "reminder.title":"¡Gracias por su reserva!",
+  "reminder.body":"Su reserva <strong>aún no está confirmada</strong>. Nos pondremos en contacto con usted en breve por <strong>correo electrónico o teléfono</strong> utilizando los datos que proporcionó, para confirmar su cita o informarle si se necesita algún ajuste.<br><br>Por favor revise su correo electrónico, o conteste/responda a nuestra llamada o mensaje. <span class=\"warn\">Si no podemos comunicarnos con usted y no recibimos respuesta, lamentamos informarle que no podremos garantizar su horario reservado al 100%.</span><br><br>Muchas gracias por su comprensión 💛",
+  "reminder.ok":"Entendido, gracias"
+},
+
+fr: {
+  "nav.info":"Infos","nav.health":"Santé","nav.booking":"Réservation","nav.done":"Terminé",
+  "hero.tag":"Réservation de Rendez-vous","hero.hours":"Ouvert 10h00 – 22h00",
+  "common.continue":"Continuer →","common.back":"← Retour","common.yes":"Oui, s'il vous plaît","common.no":"Non, merci",
+  "info.title":"📋 Comment Réserver","info.sub":"Veuillez lire avant de continuer",
+  "info.body":`Vous pouvez réserver n'importe quel nombre de jours à l'avance — même la veille convient ! Pour une réservation le jour même, merci de réserver au moins <strong>2 à 3 heures à l'avance</strong> et de <strong>répondre rapidement à notre message de confirmation</strong>, car nous ne pouvons pas garantir votre créneau sans réponse. Pour une réservation de dernière minute <strong>(moins de 2 heures)</strong>, veuillez nous appeler ou nous contacter directement sur WhatsApp au <a href="tel:+6663394622">+66 63-394-6422</a>.
+    <div class="strip strip-deposit">💳 <strong>Acompte Facultatif pour les Grands Groupes ou Réservations Garanties</strong><br>Pour les réservations de groupe ou si vous souhaitez garantir votre créneau, vous pouvez organiser un acompte de <strong>200 THB par personne</strong>. Contactez-nous directement :<br>📞 <a href="tel:+6663394622">+66 63-394-6422</a> (Appel / WhatsApp) &nbsp;·&nbsp; ✉️ jmmassagetherapycm@gmail.com</div>
+    <div class="strip strip-policy">📌 <strong>Politique de Rendez-vous</strong><br>1. Merci d'arriver à l'heure. En cas de retard <strong>de plus de 15 minutes</strong>, le temps de retard sera déduit de votre séance de massage.<br>2. En cas de retard <strong>de 30 minutes ou plus</strong>, nous nous réservons le droit d'annuler le rendez-vous.</div>`,
+  "health.title":"🌿 Confirmation de Santé","health.sub":"Veuillez confirmer que vous <strong style=\"color:var(--red)\">N'AVEZ PAS</strong> l'un des éléments suivants",
+  "health.items":["Problèmes graves de la colonne vertébrale (ex. hernie discale)","Blessure, chirurgie ou fractures récentes","Maladie cardiaque grave ou condition médicale à haut risque","Cancer ou en cours de traitement","Grossesse","Affections cutanées infectieuses ou plaies ouvertes"],
+  "health.confirmText":"Je confirme être en bonne santé et pouvoir recevoir un massage en toute sécurité.",
+  "health.err":"Veuillez confirmer votre état de santé en cochant la case ci-dessus.",
+  "health.next":"Je confirme — Continuer vers la Réservation →",
+  "booking.personal.title":"Informations Personnelles","booking.name.label":"Nom Complet","booking.name.err":"Veuillez saisir votre nom.",
+  "booking.contact.label":"Numéro de Téléphone ou E-mail","booking.contact.hint":"Un numéro thaïlandais est préférable. À défaut, indiquez votre e-mail — nous vous enverrons une confirmation.","booking.contact.err":"Veuillez saisir votre numéro de téléphone ou e-mail.",
+  "booking.datetime.title":"Date et Heure","booking.date.label":"Date Souhaitée","booking.date.err":"Veuillez sélectionner une date.",
+  "booking.time.label":"Heure Souhaitée","booking.time.hint":"Heures d'ouverture : 10h00 – 22h00","booking.time.err":"Veuillez sélectionner une heure.",
+  "booking.people.label":"Nombre de Personnes","booking.people.select":"— Sélectionner —","booking.people.err":"Veuillez sélectionner le nombre de personnes.",
+  "booking.services.title":"Services de Massage","booking.services.hint":"Les détails complets et les prix en plusieurs langues se trouvent dans le Menu (en haut de la page)","booking.services.err":"Veuillez sélectionner au moins un service.",
+  "booking.session.title":"Détails de la Séance",
+  "booking.duration.label":"Durée","booking.duration.60":"60 minutes","booking.duration.90":"90 minutes","booking.duration.120":"120 minutes","booking.duration.150":"150 minutes","booking.duration.180":"180 minutes (3 heures)","booking.duration.err":"Veuillez sélectionner une durée.",
+  "booking.therapist.label":"Préférence de Thérapeute","booking.therapist.male":"Homme","booking.therapist.female":"Femme","booking.therapist.either":"Peu importe / Sans préférence","booking.therapist.err":"Veuillez sélectionner une préférence.",
+  "booking.pressure.label":"Niveau de Pression","booking.pressure.light":"Léger — relaxant et doux","booking.pressure.medium":"Moyen — intensité modérée","booking.pressure.strong":"Fort — profond et intense","booking.pressure.err":"Veuillez sélectionner un niveau de pression.",
+  "booking.addons.title":"Options Gratuites",
+  "booking.footsoak.label":"Bain de Pieds Offert ?","booking.footsoak.hint":"Service gratuit — merci d'arriver 15 à 20 minutes plus tôt si vous choisissez cette option.","booking.footsoak.yes":"Oui ! Bain aux Herbes Chinoises — favorise la circulation et la détente","booking.footsoak.no":"Sans bain de pieds (heure d'arrivée habituelle)","booking.footsoak.err":"Veuillez sélectionner une option.",
+  "booking.balm.label":"Baume de Massage JM ?","booking.balm.hint":"Sans frais supplémentaires","booking.balm.err":"Veuillez sélectionner une option.",
+  "booking.bianstone.label":"Massage Chaud des Épaules et du Cou à la Pierre Bian ?","booking.bianstone.hint":"GRATUIT pour les séances de 90 minutes ou plus — effectué à la fin de votre séance.","booking.bianstone.yes":"Oui, je le souhaite","booking.bianstone.err":"Veuillez sélectionner une option.",
+  "booking.notes.label":"Notes / Demandes Particulières","booking.notes.hint":"Toute demande particulière, note de santé ou préférence",
+  "booking.submit":"Envoyer la Demande de Réservation","booking.submitting":"⏳ Envoi en cours...",
+  "policy.title":"📋 Politique de Réservation","policy.sub":"Veuillez lire et confirmer",
+  "policy.body":"Nous nous efforçons d'offrir le meilleur service aux clients qui réservent à l'avance. <strong>Merci de répondre rapidement à notre message de confirmation ou à notre e-mail pour finaliser votre réservation.</strong> Si nous ne parvenons pas à vous joindre ou si nous ne recevons aucune réponse, votre réservation pourrait ne pas être confirmée.",
+  "policy.confirmText":"Je reconnais la politique de réservation et je comprends que je dois répondre au message de confirmation pour finaliser ma réservation.",
+  "policy.err":"Veuillez confirmer la politique de réservation.",
+  "done.title":"Demande de Réservation Reçue !","done.sub":"Merci d'avoir choisi JM Massage Studio. Nous examinerons votre réservation et vous contacterons prochainement pour confirmer votre rendez-vous.",
+  "done.summaryTitle":"Récapitulatif de votre Réservation",
+  "done.nextTitle":"⏳ Que se passe-t-il ensuite ?","done.next1":"1. Nous examinerons votre réservation et vérifierons les disponibilités.","done.next2":"2. Nous vous contacterons par téléphone ou e-mail pour confirmer votre rendez-vous.","done.next3":"3. Merci de répondre à notre message de confirmation pour finaliser votre réservation.",
+  "done.screenshot":"Merci de faire une capture d'écran de cette page comme preuve de votre demande de réservation.",
+  "s.name":"Nom","s.contact":"Contact","s.date":"Date","s.time":"Heure","s.people":"Personnes","s.services":"Services","s.duration":"Durée","s.therapist":"Thérapeute","s.pressure":"Pression","s.footsoak":"Bain de Pieds","s.balm":"Baume","s.bianstone":"Pierre Bian","s.notes":"Notes","s.submitted":"Envoyé",
+  "reminder.title":"Merci pour votre réservation !",
+  "reminder.body":"Votre réservation <strong>n'est pas encore confirmée</strong>. Nous vous contacterons prochainement par <strong>e-mail ou téléphone</strong> en utilisant les coordonnées que vous avez fournies, afin de confirmer votre rendez-vous ou de vous informer si un ajustement est nécessaire.<br><br>Merci de vérifier votre e-mail, ou de répondre à notre appel ou message. <span class=\"warn\">Si nous ne parvenons pas à vous joindre et ne recevons aucune réponse, nous sommes désolés de ne pas pouvoir garantir votre créneau réservé à 100 %.</span><br><br>Merci beaucoup pour votre compréhension 💛",
+  "reminder.ok":"Compris, merci"
 }
 };
 
 let currentLang = localStorage.getItem('jm_lang') || 'en';
-const LANG_META = {en:{flag:'🇬🇧',label:'EN'},th:{flag:'🇹🇭',label:'ไทย'},ko:{flag:'🇰🇷',label:'한국어'},zh:{flag:'🇨🇳',label:'中文'},ja:{flag:'🇯🇵',label:'日本語'}};
+const LANG_META = {en:{flag:'🇬🇧',label:'EN'},th:{flag:'🇹🇭',label:'ไทย'},ko:{flag:'🇰🇷',label:'한국어'},zh:{flag:'🇨🇳',label:'中文'},ja:{flag:'🇯🇵',label:'日本語'},es:{flag:'🇪🇸',label:'ES'},fr:{flag:'🇫🇷',label:'FR'}};
 
 function t(key){ return (I18N[currentLang] && I18N[currentLang][key]) ?? (I18N.en[key] ?? key); }
 
@@ -1249,6 +1342,18 @@ async function loadBookings(){
       ${addons.length?`<div class="bk-d" style="margin-bottom:10px"><div class="bk-d-lbl">Add-ons</div><div class="bk-d-val" style="font-size:13px;line-height:1.6">${addons.join('<br>')}</div></div>`:''}
       ${nt?`<div class="bk-d" style="margin-bottom:10px"><div class="bk-d-lbl">⚠️ Notes / Requests</div><div class="bk-d-val" style="font-size:13px;background:var(--gold-light);padding:10px 14px;border-radius:8px;border-left:3px solid var(--gold)">${nt}</div></div>`:''}
       <div class="tpl-section">
+        <div class="tpl-lang-row">
+          <span class="tpl-lang-lbl">🌐 Reply language:</span>
+          <select id="tpl-lang-${idx}" class="tpl-lang-select">
+            <option value="en">English</option>
+            <option value="th">ไทย (Thai)</option>
+            <option value="ko">한국어 (Korean)</option>
+            <option value="zh">中文 (Chinese)</option>
+            <option value="ja">日本語 (Japanese)</option>
+            <option value="es">Español (Spanish)</option>
+            <option value="fr">Français (French)</option>
+          </select>
+        </div>
         <div class="tpl-group">
           <div class="tpl-lbl">📨 Reply / Confirm</div>
           <div class="tpl-btns">
@@ -1300,37 +1405,27 @@ function fmtTime(t){
   return t.toString().substring(0,5);
 }
 
-function showTpl(idx,type){
-  const tplEl=document.getElementById('tpl-'+idx);
-  const parentCard=tplEl.closest('.bk');
-  const nm=parentCard.dataset.nm, dt=fmtDate(parentCard.dataset.dt), tm=fmtTime(parentCard.dataset.tm),
-    pp=parentCard.dataset.pp, sv=parentCard.dataset.sv, dr=parentCard.dataset.dr,
-    th=parentCard.dataset.th, pr=parentCard.dataset.pr,
-    addons=parentCard.dataset.addons, nt=parentCard.dataset.nt;
+const ADDONS_NONE = {en:'None',th:'ไม่มี',ko:'없음',zh:'无',ja:'なし',es:'Ninguno',fr:'Aucun'};
 
-  const svcLines=sv.split('|').map(s=>s.trim()).filter(Boolean).join('\n              ');
-  let addonsLine=addons?addons:'None';
-  const svcCsv=sv.split('|').map(s=>s.trim()).filter(Boolean).join(', ');
-
-  let msg='';
-  if(type==='confirm'){
-    msg=`Dear ${nm},
+const TPL_MSGS = {
+en: {
+  confirm: v => `Dear ${v.nm},
 
 Thank you for booking with JM Massage Studio.
 
 This email is to confirm your massage appointment details as follows:
 
-Date:              ${dt}
-Time:              ${tm}
-Service:           ${svcCsv}
-Duration:          ${dr}
-Pressure:          ${pr}
-Therapist:         ${th}
-Number of Guests:  ${pp}
+Date:              ${v.dt}
+Time:              ${v.tm}
+Service:           ${v.svcCsv}
+Duration:          ${v.dr}
+Pressure:          ${v.pr}
+Therapist:         ${v.th}
+Number of Guests:  ${v.pp}
 
 Additional Services:
-${addonsLine}
-${nt?`\nSpecial Requests / Notes:\n${nt}`:''}
+${v.addonsLine}
+${v.nt?`\nSpecial Requests / Notes:\n${v.nt}`:''}
 
 Kindly reply to this email to confirm your appointment.
 
@@ -1340,17 +1435,16 @@ Best regards,
 JM Massage Studio
 Open daily: 10:00 AM – 10:00 PM
 Tel / WhatsApp: +66 63 394 6422
-Line ID: @jmmassage`;
-  } else if(type==='modify'){
-    msg=`Dear ${nm},
+Line ID: @jmmassage`,
+  modify: v => `Dear ${v.nm},
 
 Thank you for booking with JM Massage Studio!
 
-We'd love to accommodate you. Unfortunately, your requested time (${tm}) on ${dt} is currently unavailable.
+We'd love to accommodate you. Unfortunately, your requested time (${v.tm}) on ${v.dt} is currently unavailable.
 
 May we suggest the following alternative?
 
-📅 Date:   ${dt}
+📅 Date:   ${v.dt}
 ⏰ Time:   [PLEASE INSERT NEW TIME]
 
 Please let us know if this works for you, and we will confirm your booking right away.
@@ -1358,13 +1452,12 @@ Please let us know if this works for you, and we will confirm your booking right
 Best regards,
 JM Massage Studio
 Tel / WhatsApp: +66 63 394 6422
-Line ID: @jmmassage`;
-  } else if(type==='full'){
-    msg=`Dear ${nm},
+Line ID: @jmmassage`,
+  full: v => `Dear ${v.nm},
 
 Thank you so much for choosing JM Massage Studio!
 
-We're sorry — we are fully booked on ${dt} at ${tm}.
+We're sorry — we are fully booked on ${v.dt} at ${v.tm}.
 
 We would love to welcome you! If you're interested, we have availability tomorrow. Please let us know your preferred time and we'll do our best to arrange it for you 🌿
 
@@ -1372,60 +1465,55 @@ Best regards,
 JM Massage Studio
 Open daily: 10:00 AM – 10:00 PM
 Tel / WhatsApp: +66 63 394 6422
-Line ID: @jmmassage`;
-  } else if(type==='remind1'){
-    msg=`Dear ${nm},
+Line ID: @jmmassage`,
+  remind1: v => `Dear ${v.nm},
 
 This is a friendly reminder from JM Massage Studio about your upcoming appointment tomorrow:
 
-📅 Date:      ${dt}
-⏰ Time:      ${tm}
-Service:      ${svcCsv}
-Duration:     ${dr}
+📅 Date:      ${v.dt}
+⏰ Time:      ${v.tm}
+Service:      ${v.svcCsv}
+Duration:     ${v.dr}
 
 We're looking forward to seeing you! If you need to reschedule or cancel, please let us know as soon as possible.
 
 Best regards,
 JM Massage Studio
 Tel / WhatsApp: +66 63 394 6422
-Line ID: @jmmassage`;
-  } else if(type==='remind0'){
-    msg=`Dear ${nm},
+Line ID: @jmmassage`,
+  remind0: v => `Dear ${v.nm},
 
 Just a quick reminder that your massage appointment with JM Massage Studio is today:
 
-⏰ Time:      ${tm}
-Service:      ${svcCsv}
-Duration:     ${dr}
+⏰ Time:      ${v.tm}
+Service:      ${v.svcCsv}
+Duration:     ${v.dr}
 
 Please arrive a few minutes early. If you're running late or need to make any changes, kindly let us know.
 
 See you soon! 🌿
 JM Massage Studio
-Tel / WhatsApp: +66 63 394 6422`;
-  } else if(type==='checkin'){
-    msg=`Hi ${nm},
+Tel / WhatsApp: +66 63 394 6422`,
+  checkin: v => `Hi ${v.nm},
 
-Your appointment time (${tm} today) has arrived — could you kindly let us know where you are / your estimated arrival time?
+Your appointment time (${v.tm} today) has arrived — could you kindly let us know where you are / your estimated arrival time?
 
 We'd love to make sure everything is ready for you 🌿
 
 JM Massage Studio
-Tel / WhatsApp: +66 63 394 6422`;
-  } else if(type==='noshow'){
-    msg=`Dear ${nm},
+Tel / WhatsApp: +66 63 394 6422`,
+  noshow: v => `Dear ${v.nm},
 
-We waited for you at your scheduled appointment time (${tm} on ${dt}), but unfortunately we were unable to reach you and you did not arrive.
+We waited for you at your scheduled appointment time (${v.tm} on ${v.dt}), but unfortunately we were unable to reach you and you did not arrive.
 
 As such, this booking is considered automatically cancelled (no-show). We'd love to welcome you another time — please feel free to reach out whenever you'd like to rebook.
 
 Best regards,
 JM Massage Studio
-Tel / WhatsApp: +66 63 394 6422`;
-  } else if(type==='incomplete'){
-    msg=`Dear ${nm},
+Tel / WhatsApp: +66 63 394 6422`,
+  incomplete: v => `Dear ${v.nm},
 
-Thank you for your booking request for ${dt} at ${tm}.
+Thank you for your booking request for ${v.dt} at ${v.tm}.
 
 Unfortunately, we have been unable to reach you and have not received any response through the contact details you provided. As we need to prioritize guests whose bookings are already confirmed, we're sorry to let you know that this booking is considered incomplete and we are unable to hold this time slot for you.
 
@@ -1434,8 +1522,724 @@ If you would still like to book, please feel free to contact us again and we'll 
 Best regards,
 JM Massage Studio
 Tel / WhatsApp: +66 63 394 6422
-Line ID: @jmmassage`;
-  }
+Line ID: @jmmassage`,
+},
+th: {
+  confirm: v => `เรียนคุณ ${v.nm}
+
+ขอบคุณที่จองคิวกับ JM Massage Studio ค่ะ
+
+อีเมลนี้เพื่อยืนยันรายละเอียดการนัดหมายนวดของคุณดังนี้
+
+วันที่:              ${v.dt}
+เวลา:                ${v.tm}
+บริการ:              ${v.svcCsv}
+ระยะเวลา:            ${v.dr}
+น้ำหนักมือ:          ${v.pr}
+พนักงานนวด:          ${v.th}
+จำนวนผู้เข้ารับบริการ: ${v.pp}
+
+บริการเสริม:
+${v.addonsLine}
+${v.nt?`\nคำขอพิเศษ/หมายเหตุ:\n${v.nt}`:''}
+
+กรุณาตอบกลับอีเมลนี้เพื่อยืนยันการนัดหมายของคุณ
+
+เรารอต้อนรับคุณค่ะ 😊
+
+ขอแสดงความนับถือ
+JM Massage Studio
+เปิดทุกวัน: 10:00 – 22:00 น.
+โทร / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  modify: v => `เรียนคุณ ${v.nm}
+
+ขอบคุณที่จองคิวกับ JM Massage Studio ค่ะ!
+
+ทางร้านอยากให้บริการคุณมากค่ะ แต่ขออภัยที่เวลาที่คุณต้องการ (${v.tm}) ในวันที่ ${v.dt} ไม่ว่างในขณะนี้
+
+ขอเสนอเวลาทางเลือกดังนี้ได้ไหมคะ
+
+📅 วันที่:  ${v.dt}
+⏰ เวลา:   [กรุณาระบุเวลาใหม่]
+
+รบกวนแจ้งกลับว่าสะดวกไหมคะ ทางร้านจะยืนยันการจองให้ทันทีค่ะ
+
+ขอแสดงความนับถือ
+JM Massage Studio
+โทร / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  full: v => `เรียนคุณ ${v.nm}
+
+ขอบคุณมากที่เลือก JM Massage Studio ค่ะ!
+
+ต้องขออภัยด้วยค่ะ วันที่ ${v.dt} เวลา ${v.tm} คิวเต็มแล้ว
+
+ทางร้านอยากต้อนรับคุณมากค่ะ! หากสนใจ พรุ่งนี้ยังมีคิวว่างอยู่ รบกวนแจ้งเวลาที่สะดวก ทางร้านจะพยายามจัดให้ดีที่สุดค่ะ 🌿
+
+ขอแสดงความนับถือ
+JM Massage Studio
+เปิดทุกวัน: 10:00 – 22:00 น.
+โทร / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  remind1: v => `เรียนคุณ ${v.nm}
+
+ทาง JM Massage Studio ขอแจ้งเตือนการนัดหมายของคุณที่จะถึงในวันพรุ่งนี้ค่ะ
+
+📅 วันที่:    ${v.dt}
+⏰ เวลา:      ${v.tm}
+บริการ:       ${v.svcCsv}
+ระยะเวลา:     ${v.dr}
+
+ทางร้านรอพบคุณค่ะ! หากต้องการเลื่อนนัดหรือยกเลิก กรุณาแจ้งล่วงหน้าโดยเร็วที่สุดนะคะ
+
+ขอแสดงความนับถือ
+JM Massage Studio
+โทร / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  remind0: v => `เรียนคุณ ${v.nm}
+
+ขอแจ้งเตือนสั้นๆ ว่าวันนี้คุณมีนัดนวดกับ JM Massage Studio ค่ะ
+
+⏰ เวลา:      ${v.tm}
+บริการ:       ${v.svcCsv}
+ระยะเวลา:     ${v.dr}
+
+กรุณามาถึงก่อนเวลาสักเล็กน้อยนะคะ หากมาสายหรือต้องการเปลี่ยนแปลงใดๆ กรุณาแจ้งให้ทราบด้วยค่ะ
+
+แล้วพบกันค่ะ! 🌿
+JM Massage Studio
+โทร / WhatsApp: +66 63 394 6422`,
+  checkin: v => `สวัสดีค่ะคุณ ${v.nm}
+
+ถึงเวลานัดของคุณแล้วค่ะ (วันนี้เวลา ${v.tm}) รบกวนแจ้งด้วยค่ะว่าตอนนี้อยู่ที่ไหน หรือคาดว่าจะถึงร้านเวลาใด
+
+ทางร้านอยากเตรียมทุกอย่างให้พร้อมสำหรับคุณค่ะ 🌿
+
+JM Massage Studio
+โทร / WhatsApp: +66 63 394 6422`,
+  noshow: v => `เรียนคุณ ${v.nm}
+
+ทางร้านรอคุณตามเวลานัดหมาย (วันที่ ${v.dt} เวลา ${v.tm}) แต่ไม่สามารถติดต่อคุณได้และคุณไม่ได้มาตามนัดค่ะ
+
+ดังนั้น การจองนี้ถือว่าถูกยกเลิกโดยอัตโนมัติ (ไม่มาตามนัด) ทางร้านยินดีต้อนรับคุณในโอกาสหน้าค่ะ สามารถติดต่อเพื่อจองใหม่ได้ทุกเมื่อนะคะ
+
+ขอแสดงความนับถือ
+JM Massage Studio
+โทร / WhatsApp: +66 63 394 6422`,
+  incomplete: v => `เรียนคุณ ${v.nm}
+
+ขอบคุณสำหรับคำขอจองคิววันที่ ${v.dt} เวลา ${v.tm} ค่ะ
+
+ขออภัยค่ะ ทางร้านไม่สามารถติดต่อคุณได้และไม่ได้รับการตอบกลับผ่านช่องทางที่คุณให้ไว้ เนื่องจากทางร้านต้องให้ความสำคัญกับลูกค้าที่ยืนยันการจองแล้วก่อน จึงขอแจ้งว่าการจองนี้ถือว่าไม่สมบูรณ์ และทางร้านไม่สามารถกันเวลานี้ไว้ให้คุณได้แล้วค่ะ
+
+หากยังต้องการจอง สามารถติดต่อกลับมาใหม่ได้เสมอนะคะ ทางร้านยินดีช่วยจัดเวลาให้ใหม่ค่ะ
+
+ขอแสดงความนับถือ
+JM Massage Studio
+โทร / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+},
+ko: {
+  confirm: v => `${v.nm}님께,
+
+JM Massage Studio를 예약해 주셔서 감사합니다.
+
+다음과 같이 마사지 예약 세부 사항을 확인드립니다.
+
+날짜:          ${v.dt}
+시간:          ${v.tm}
+서비스:        ${v.svcCsv}
+소요 시간:     ${v.dr}
+강도:          ${v.pr}
+테라피스트:    ${v.th}
+인원 수:       ${v.pp}
+
+추가 서비스:
+${v.addonsLine}
+${v.nt?`\n특별 요청 / 메모:\n${v.nt}`:''}
+
+예약을 확정하시려면 이 이메일에 회신해 주시기 바랍니다.
+
+방문을 기다리겠습니다 😊
+
+감사합니다,
+JM Massage Studio
+매일 영업: 10:00 – 22:00
+전화 / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  modify: v => `${v.nm}님께,
+
+JM Massage Studio를 예약해 주셔서 감사합니다!
+
+기꺼이 도와드리고 싶지만, 아쉽게도 요청하신 시간(${v.dt} ${v.tm})은 현재 예약이 불가능합니다.
+
+다음과 같은 대체 시간을 제안드려도 될까요?
+
+📅 날짜: ${v.dt}
+⏰ 시간: [새 시간을 입력해 주세요]
+
+가능하신지 알려주시면 바로 예약을 확정해 드리겠습니다.
+
+감사합니다,
+JM Massage Studio
+전화 / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  full: v => `${v.nm}님께,
+
+JM Massage Studio를 선택해 주셔서 진심으로 감사합니다!
+
+죄송합니다 — ${v.dt} ${v.tm}은(는) 예약이 모두 마감되었습니다.
+
+꼭 모시고 싶습니다! 괜찮으시다면 내일은 예약 가능한 시간이 있습니다. 원하시는 시간을 알려주시면 최선을 다해 조율해 드리겠습니다 🌿
+
+감사합니다,
+JM Massage Studio
+매일 영업: 10:00 – 22:00
+전화 / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  remind1: v => `${v.nm}님께,
+
+JM Massage Studio에서 내일 예정된 예약을 안내드립니다.
+
+📅 날짜:    ${v.dt}
+⏰ 시간:    ${v.tm}
+서비스:     ${v.svcCsv}
+소요 시간:  ${v.dr}
+
+뵙기를 기대하고 있습니다! 일정 변경이나 취소가 필요하시면 최대한 빨리 알려주세요.
+
+감사합니다,
+JM Massage Studio
+전화 / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  remind0: v => `${v.nm}님께,
+
+오늘 JM Massage Studio 마사지 예약이 있음을 간단히 안내드립니다.
+
+⏰ 시간:    ${v.tm}
+서비스:     ${v.svcCsv}
+소요 시간:  ${v.dr}
+
+몇 분 일찍 도착해 주시기 바랍니다. 늦으시거나 변경 사항이 있으시면 알려주세요.
+
+곧 뵙겠습니다! 🌿
+JM Massage Studio
+전화 / WhatsApp: +66 63 394 6422`,
+  checkin: v => `${v.nm}님, 안녕하세요.
+
+예약하신 시간(오늘 ${v.tm})이 되었습니다. 현재 위치나 도착 예정 시간을 알려주시겠어요?
+
+준비를 완벽히 해두고 싶습니다 🌿
+
+JM Massage Studio
+전화 / WhatsApp: +66 63 394 6422`,
+  noshow: v => `${v.nm}님께,
+
+예약하신 시간(${v.dt} ${v.tm})에 기다렸으나, 안타깝게도 연락이 닿지 않았고 방문하지 않으셨습니다.
+
+이에 따라 본 예약은 노쇼로 자동 취소 처리됨을 안내드립니다. 다음 기회에 꼭 모시고 싶습니다 — 언제든 다시 예약을 원하시면 편하게 연락해 주세요.
+
+감사합니다,
+JM Massage Studio
+전화 / WhatsApp: +66 63 394 6422`,
+  incomplete: v => `${v.nm}님께,
+
+${v.dt} ${v.tm} 예약 요청 주셔서 감사합니다.
+
+안타깝게도 알려주신 연락처로 연락을 드렸으나 응답을 받지 못했습니다. 이미 확정된 예약 고객을 우선해야 하는 상황이라, 본 예약은 미완료로 처리되어 해당 시간을 더 이상 보유해 드릴 수 없음을 안내드립니다.
+
+여전히 예약을 원하신다면 언제든 다시 연락 주세요. 기꺼이 새로운 시간을 도와드리겠습니다.
+
+감사합니다,
+JM Massage Studio
+전화 / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+},
+zh: {
+  confirm: v => `亲爱的 ${v.nm}：
+
+感谢您预约 JM Massage Studio。
+
+现确认您的按摩预约详情如下：
+
+日期：           ${v.dt}
+时间：           ${v.tm}
+服务项目：       ${v.svcCsv}
+时长：           ${v.dr}
+力度：           ${v.pr}
+理疗师：         ${v.th}
+人数：           ${v.pp}
+
+附加服务：
+${v.addonsLine}
+${v.nt?`\n特殊要求/备注：\n${v.nt}`:''}
+
+请回复此邮件以确认您的预约。
+
+期待您的光临 😊
+
+此致
+JM Massage Studio
+每日营业：10:00 – 22:00
+电话 / WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  modify: v => `亲爱的 ${v.nm}：
+
+感谢您预约 JM Massage Studio！
+
+我们很想为您安排，但很抱歉，您要求的时间（${v.dt} ${v.tm}）目前无法预约。
+
+请问以下时间是否可以？
+
+📅 日期：${v.dt}
+⏰ 时间：[请填写新时间]
+
+请告知我们是否合适，我们将立即为您确认预约。
+
+此致
+JM Massage Studio
+电话 / WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  full: v => `亲爱的 ${v.nm}：
+
+非常感谢您选择 JM Massage Studio！
+
+很抱歉，${v.dt} ${v.tm} 的时段已被预订满。
+
+我们非常希望能为您服务！如果您有兴趣，明天仍有空档，请告知您方便的时间，我们会尽力为您安排 🌿
+
+此致
+JM Massage Studio
+每日营业：10:00 – 22:00
+电话 / WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  remind1: v => `亲爱的 ${v.nm}：
+
+JM Massage Studio 温馨提醒您，您明天有预约：
+
+📅 日期：    ${v.dt}
+⏰ 时间：    ${v.tm}
+服务：       ${v.svcCsv}
+时长：       ${v.dr}
+
+我们期待您的光临！如需改期或取消，请尽快告知我们。
+
+此致
+JM Massage Studio
+电话 / WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  remind0: v => `亲爱的 ${v.nm}：
+
+温馨提醒您，今天您在 JM Massage Studio 有预约：
+
+⏰ 时间：    ${v.tm}
+服务：       ${v.svcCsv}
+时长：       ${v.dr}
+
+请提前几分钟到达。如有迟到或需要变更，请告知我们。
+
+期待与您相见！🌿
+JM Massage Studio
+电话 / WhatsApp：+66 63 394 6422`,
+  checkin: v => `您好，${v.nm}：
+
+您的预约时间（今天 ${v.tm}）已到，请问您现在在哪里，或大概几点能到店呢？
+
+我们希望为您准备好一切 🌿
+
+JM Massage Studio
+电话 / WhatsApp：+66 63 394 6422`,
+  noshow: v => `亲爱的 ${v.nm}：
+
+我们在您预约的时间（${v.dt} ${v.tm}）等候，但很遗憾未能联系到您，您也未能到店。
+
+因此，此预约将被视为自动取消（爽约）。我们非常欢迎您下次光临 —— 如需重新预约，请随时与我们联系。
+
+此致
+JM Massage Studio
+电话 / WhatsApp：+66 63 394 6422`,
+  incomplete: v => `亲爱的 ${v.nm}：
+
+感谢您提交 ${v.dt} ${v.tm} 的预约请求。
+
+很遗憾，我们无法通过您提供的联系方式联系到您，也未收到任何回复。由于我们需要优先安排已确认预约的客人，非常抱歉地通知您，此预约将被视为未完成，我们无法为您保留该时段。
+
+如果您仍希望预约，欢迎随时再次与我们联系，我们将很乐意为您安排新的时间。
+
+此致
+JM Massage Studio
+电话 / WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+},
+ja: {
+  confirm: v => `${v.nm} 様
+
+JM Massage Studioをご予約いただきありがとうございます。
+
+以下の内容でご予約を確認いたします。
+
+日付：            ${v.dt}
+時間：            ${v.tm}
+メニュー：        ${v.svcCsv}
+施術時間：        ${v.dr}
+強さ：            ${v.pr}
+セラピスト：      ${v.th}
+人数：            ${v.pp}
+
+追加サービス：
+${v.addonsLine}
+${v.nt?`\nご要望・備考：\n${v.nt}`:''}
+
+ご予約確定のため、本メールにご返信ください。
+
+ご来店を心よりお待ちしております 😊
+
+敬具
+JM Massage Studio
+営業時間：毎日 10:00 – 22:00
+電話／WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  modify: v => `${v.nm} 様
+
+JM Massage Studioをご予約いただきありがとうございます！
+
+ぜひご案内したいのですが、あいにくご希望の時間（${v.dt} ${v.tm}）は現在ご予約いただけません。
+
+以下の代替日時はいかがでしょうか。
+
+📅 日付：${v.dt}
+⏰ 時間：［新しい時間をご記入ください］
+
+ご都合がよろしければお知らせください。すぐにご予約を確定いたします。
+
+敬具
+JM Massage Studio
+電話／WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  full: v => `${v.nm} 様
+
+JM Massage Studioをお選びいただき、誠にありがとうございます！
+
+大変申し訳ございませんが、${v.dt} ${v.tm}は満席となっております。
+
+ぜひご来店いただきたいです！よろしければ明日は空きがございます。ご希望のお時間をお知らせいただければ、可能な限り調整いたします 🌿
+
+敬具
+JM Massage Studio
+営業時間：毎日 10:00 – 22:00
+電話／WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  remind1: v => `${v.nm} 様
+
+JM Massage Studioより、明日のご予約についてリマインドいたします。
+
+📅 日付：    ${v.dt}
+⏰ 時間：    ${v.tm}
+メニュー：   ${v.svcCsv}
+施術時間：   ${v.dr}
+
+お越しをお待ちしております！日程変更やキャンセルをご希望の場合は、できるだけ早くお知らせください。
+
+敬具
+JM Massage Studio
+電話／WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+  remind0: v => `${v.nm} 様
+
+本日、JM Massage Studioでのご予約がございますことをお知らせいたします。
+
+⏰ 時間：    ${v.tm}
+メニュー：   ${v.svcCsv}
+施術時間：   ${v.dr}
+
+数分前にご来店いただけますようお願いいたします。遅れる場合やご変更がある場合はお知らせください。
+
+お待ちしております！🌿
+JM Massage Studio
+電話／WhatsApp：+66 63 394 6422`,
+  checkin: v => `${v.nm} 様
+
+本日のご予約時間（${v.tm}）になりました。現在のご状況や到着予定時刻を教えていただけますでしょうか。
+
+万全の準備でお待ちしております 🌿
+
+JM Massage Studio
+電話／WhatsApp：+66 63 394 6422`,
+  noshow: v => `${v.nm} 様
+
+ご予約のお時間（${v.dt} ${v.tm}）にお待ちしておりましたが、ご連絡が取れず、ご来店もございませんでした。
+
+つきましては、本予約は自動的にキャンセル（無断キャンセル）扱いとさせていただきます。またの機会にぜひお越しください — 再度ご予約をご希望の際はお気軽にご連絡ください。
+
+敬具
+JM Massage Studio
+電話／WhatsApp：+66 63 394 6422`,
+  incomplete: v => `${v.nm} 様
+
+${v.dt} ${v.tm}のご予約リクエストをいただき、ありがとうございます。
+
+大変申し訳ございませんが、ご提供いただいた連絡先にご連絡したものの、お返事をいただくことができませんでした。既にご予約が確定しているお客様を優先する必要があるため、誠に恐縮ですが本予約は未完了とさせていただき、この時間帯を確保することができません。
+
+改めてご予約をご希望の場合は、お気軽にご連絡ください。喜んで新しい日時のご案内をさせていただきます。
+
+敬具
+JM Massage Studio
+電話／WhatsApp：+66 63 394 6422
+Line ID：@jmmassage`,
+},
+es: {
+  confirm: v => `Estimado/a ${v.nm},
+
+Gracias por reservar con JM Massage Studio.
+
+Este correo es para confirmar los detalles de su cita de masaje:
+
+Fecha:                ${v.dt}
+Hora:                  ${v.tm}
+Servicio:              ${v.svcCsv}
+Duración:              ${v.dr}
+Presión:               ${v.pr}
+Terapeuta:             ${v.th}
+Número de personas:    ${v.pp}
+
+Servicios adicionales:
+${v.addonsLine}
+${v.nt?`\nSolicitudes especiales / Notas:\n${v.nt}`:''}
+
+Le agradecemos responder a este correo para confirmar su cita.
+
+¡Esperamos darle la bienvenida! 😊
+
+Atentamente,
+JM Massage Studio
+Abierto todos los días: 10:00 – 22:00
+Tel / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  modify: v => `Estimado/a ${v.nm},
+
+¡Gracias por reservar con JM Massage Studio!
+
+Nos encantaría atenderle. Lamentablemente, el horario solicitado (${v.tm}) el ${v.dt} no está disponible en este momento.
+
+¿Podemos sugerirle la siguiente alternativa?
+
+📅 Fecha:  ${v.dt}
+⏰ Hora:   [POR FAVOR INDIQUE LA NUEVA HORA]
+
+Por favor, díganos si le conviene y confirmaremos su reserva de inmediato.
+
+Atentamente,
+JM Massage Studio
+Tel / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  full: v => `Estimado/a ${v.nm},
+
+¡Muchas gracias por elegir JM Massage Studio!
+
+Lo sentimos — estamos completos el ${v.dt} a las ${v.tm}.
+
+¡Nos encantaría recibirle! Si le interesa, tenemos disponibilidad mañana. Indíquenos su horario preferido y haremos lo posible por organizarlo 🌿
+
+Atentamente,
+JM Massage Studio
+Abierto todos los días: 10:00 – 22:00
+Tel / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  remind1: v => `Estimado/a ${v.nm},
+
+Este es un recordatorio amistoso de JM Massage Studio sobre su próxima cita mañana:
+
+📅 Fecha:     ${v.dt}
+⏰ Hora:      ${v.tm}
+Servicio:     ${v.svcCsv}
+Duración:     ${v.dr}
+
+¡Esperamos verle pronto! Si necesita reprogramar o cancelar, por favor avísenos lo antes posible.
+
+Atentamente,
+JM Massage Studio
+Tel / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+  remind0: v => `Estimado/a ${v.nm},
+
+Solo un breve recordatorio de que hoy tiene su cita de masaje con JM Massage Studio:
+
+⏰ Hora:      ${v.tm}
+Servicio:     ${v.svcCsv}
+Duración:     ${v.dr}
+
+Por favor llegue unos minutos antes. Si se retrasa o necesita hacer algún cambio, avísenos por favor.
+
+¡Nos vemos pronto! 🌿
+JM Massage Studio
+Tel / WhatsApp: +66 63 394 6422`,
+  checkin: v => `Hola ${v.nm},
+
+Su hora de cita (${v.tm} de hoy) ya llegó — ¿podría indicarnos dónde se encuentra o su hora estimada de llegada?
+
+Queremos asegurarnos de que todo esté listo para usted 🌿
+
+JM Massage Studio
+Tel / WhatsApp: +66 63 394 6422`,
+  noshow: v => `Estimado/a ${v.nm},
+
+Le esperamos a la hora programada (${v.tm} el ${v.dt}), pero lamentablemente no pudimos contactarle y no se presentó.
+
+Por lo tanto, esta reserva se considera cancelada automáticamente (no presentado). Nos encantaría recibirle en otra ocasión — no dude en contactarnos cuando desee reservar de nuevo.
+
+Atentamente,
+JM Massage Studio
+Tel / WhatsApp: +66 63 394 6422`,
+  incomplete: v => `Estimado/a ${v.nm},
+
+Gracias por su solicitud de reserva para el ${v.dt} a las ${v.tm}.
+
+Lamentablemente, no hemos podido contactarle y no hemos recibido respuesta a través de los datos de contacto proporcionados. Dado que debemos priorizar a los huéspedes con reservas ya confirmadas, lamentamos informarle que esta reserva se considera incompleta y no podemos reservarle este horario.
+
+Si aún desea reservar, no dude en contactarnos nuevamente y con gusto le ayudaremos a coordinar un nuevo horario.
+
+Atentamente,
+JM Massage Studio
+Tel / WhatsApp: +66 63 394 6422
+Line ID: @jmmassage`,
+},
+fr: {
+  confirm: v => `Cher/Chère ${v.nm},
+
+Merci d'avoir réservé chez JM Massage Studio.
+
+Cet e-mail confirme les détails de votre rendez-vous de massage :
+
+Date :                  ${v.dt}
+Heure :                 ${v.tm}
+Service :               ${v.svcCsv}
+Durée :                 ${v.dr}
+Pression :              ${v.pr}
+Thérapeute :            ${v.th}
+Nombre de personnes :   ${v.pp}
+
+Services supplémentaires :
+${v.addonsLine}
+${v.nt?`\nDemandes spéciales / Notes :\n${v.nt}`:''}
+
+Merci de répondre à cet e-mail pour confirmer votre rendez-vous.
+
+Nous avons hâte de vous accueillir 😊
+
+Cordialement,
+JM Massage Studio
+Ouvert tous les jours : 10h00 – 22h00
+Tél / WhatsApp : +66 63 394 6422
+Line ID : @jmmassage`,
+  modify: v => `Cher/Chère ${v.nm},
+
+Merci d'avoir réservé chez JM Massage Studio !
+
+Nous serions ravis de vous accueillir. Malheureusement, l'horaire demandé (${v.tm}) le ${v.dt} n'est pas disponible actuellement.
+
+Pourrions-nous vous proposer l'alternative suivante ?
+
+📅 Date :  ${v.dt}
+⏰ Heure : [VEUILLEZ INDIQUER LA NOUVELLE HEURE]
+
+Merci de nous indiquer si cela vous convient, et nous confirmerons votre réservation immédiatement.
+
+Cordialement,
+JM Massage Studio
+Tél / WhatsApp : +66 63 394 6422
+Line ID : @jmmassage`,
+  full: v => `Cher/Chère ${v.nm},
+
+Merci beaucoup d'avoir choisi JM Massage Studio !
+
+Nous sommes désolés — nous sommes complets le ${v.dt} à ${v.tm}.
+
+Nous serions ravis de vous accueillir ! Si cela vous intéresse, nous avons de la disponibilité demain. Merci de nous indiquer votre horaire préféré, nous ferons de notre mieux pour l'organiser 🌿
+
+Cordialement,
+JM Massage Studio
+Ouvert tous les jours : 10h00 – 22h00
+Tél / WhatsApp : +66 63 394 6422
+Line ID : @jmmassage`,
+  remind1: v => `Cher/Chère ${v.nm},
+
+Ceci est un rappel amical de JM Massage Studio concernant votre rendez-vous de demain :
+
+📅 Date :     ${v.dt}
+⏰ Heure :    ${v.tm}
+Service :     ${v.svcCsv}
+Durée :       ${v.dr}
+
+Nous avons hâte de vous voir ! Si vous devez reporter ou annuler, merci de nous le faire savoir dès que possible.
+
+Cordialement,
+JM Massage Studio
+Tél / WhatsApp : +66 63 394 6422
+Line ID : @jmmassage`,
+  remind0: v => `Cher/Chère ${v.nm},
+
+Un petit rappel : votre rendez-vous de massage chez JM Massage Studio est aujourd'hui :
+
+⏰ Heure :    ${v.tm}
+Service :     ${v.svcCsv}
+Durée :       ${v.dr}
+
+Merci d'arriver quelques minutes en avance. En cas de retard ou de changement, merci de nous en informer.
+
+À bientôt ! 🌿
+JM Massage Studio
+Tél / WhatsApp : +66 63 394 6422`,
+  checkin: v => `Bonjour ${v.nm},
+
+L'heure de votre rendez-vous (${v.tm} aujourd'hui) est arrivée — pourriez-vous nous indiquer où vous êtes ou votre heure d'arrivée estimée ?
+
+Nous souhaitons nous assurer que tout soit prêt pour vous 🌿
+
+JM Massage Studio
+Tél / WhatsApp : +66 63 394 6422`,
+  noshow: v => `Cher/Chère ${v.nm},
+
+Nous vous avons attendu à l'heure prévue de votre rendez-vous (${v.tm} le ${v.dt}), mais malheureusement nous n'avons pas pu vous joindre et vous n'êtes pas venu(e).
+
+Cette réservation est donc considérée comme automatiquement annulée (absence). Nous serions ravis de vous accueillir une prochaine fois — n'hésitez pas à nous contacter dès que vous souhaitez réserver à nouveau.
+
+Cordialement,
+JM Massage Studio
+Tél / WhatsApp : +66 63 394 6422`,
+  incomplete: v => `Cher/Chère ${v.nm},
+
+Merci pour votre demande de réservation pour le ${v.dt} à ${v.tm}.
+
+Malheureusement, nous n'avons pas pu vous joindre et n'avons reçu aucune réponse via les coordonnées fournies. Devant donner la priorité aux clients dont la réservation est déjà confirmée, nous sommes désolés de vous informer que cette réservation est considérée comme incomplète et que nous ne pouvons pas conserver ce créneau pour vous.
+
+Si vous souhaitez toujours réserver, n'hésitez pas à nous recontacter — nous serons ravis de vous aider à organiser un nouveau créneau.
+
+Cordialement,
+JM Massage Studio
+Tél / WhatsApp : +66 63 394 6422
+Line ID : @jmmassage`,
+},
+};
+
+function showTpl(idx,type){
+  const tplEl=document.getElementById('tpl-'+idx);
+  const parentCard=tplEl.closest('.bk');
+  const nm=parentCard.dataset.nm, dt=fmtDate(parentCard.dataset.dt), tm=fmtTime(parentCard.dataset.tm),
+    pp=parentCard.dataset.pp, sv=parentCard.dataset.sv, dr=parentCard.dataset.dr,
+    th=parentCard.dataset.th, pr=parentCard.dataset.pr,
+    addons=parentCard.dataset.addons, nt=parentCard.dataset.nt;
+
+  const langSel=document.getElementById('tpl-lang-'+idx);
+  const lang=(langSel && langSel.value) || 'en';
+
+  const svcCsv=sv.split('|').map(s=>s.trim()).filter(Boolean).join(', ');
+  const addonsLine=addons?addons:(ADDONS_NONE[lang]||ADDONS_NONE.en);
+
+  const v={nm,dt,tm,svcCsv,dr,pr,th,pp,addonsLine,nt};
+  const fnSet=TPL_MSGS[lang]||TPL_MSGS.en;
+  const fn=fnSet[type]||TPL_MSGS.en[type];
+  const msg=fn(v);
 
   tplEl.textContent=msg; tplEl.classList.add('show');
   const cp=document.getElementById('copy-'+idx); cp.classList.add('show');
